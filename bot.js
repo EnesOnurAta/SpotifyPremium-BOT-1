@@ -6,6 +6,7 @@
 	const coins = require("./coins.json");
 	const xp = require("./xp.json");
 	const db = require('quick.db');
+	var prefix = botconfig.prefix;
 	/*
         const DBL = require("dblapi.js");
         const dbl = new DBL(process.env.DBL_TOKEN, bot);*/
