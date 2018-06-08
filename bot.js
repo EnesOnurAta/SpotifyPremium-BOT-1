@@ -169,11 +169,11 @@
 	channel.send(Embed);
 	});
 	bot.on('guildMemberRemove', member => {
-    bot.channels.get('439792255365021696').setName(`Toplam Kullanıcı: ${member.guild.memberCount}`)
-    let humans = member.guild.members.filter(m => !m.user.bot).size;
-    bot.channels.get('439793088001736725').setName(`Üye Sayısı: ${humans}`)
-    let bots = member.guild.members.filter(m => m.user.bot).size;
-    bot.channels.get('439793716052623361').setName(`Bot Sayısı: ${bots}`)
+    	bot.channels.get('439792255365021696').setName(`Toplam Kullanıcı: ${member.guild.memberCount}`)
+    	let humans = member.guild.members.filter(m => !m.user.bot).size;
+    	bot.channels.get('439793088001736725').setName(`Üye Sayısı: ${humans}`)
+    	let bots = member.guild.members.filter(m => m.user.bot).size;
+    	bot.channels.get('439793716052623361').setName(`Bot Sayısı: ${bots}`)
 	const channel = member.guild.channels.find(`name`, 'uye-log');
 	if(!channel) return; 
 	let Embed = new Discord.RichEmbed()
@@ -183,5 +183,25 @@
 	.setFooter(`Üye Ayrıldı | Kaç Kişi Olduk = ${member.guild.memberCount}`)
 	channel.send(Embed);
 	});
-
+	
+	//Hesaplar
+	bot.on('message', msg => {
+  	if (msg.content === prefix + 'hesapver') {
+    	const embed = new Discord.RichEmbed()
+      	.setColor("RED")
+      	.setAuthor(msg.author.username, msg.author.avatarURL)
+      	.addField("Hesap Bilgileri", `Eposta: deneme123@gmail.com`)
+	.addField(`Şifre: deneme123`)
+     	.setDescription(`${bot.user.username} Bedava Hesap Sistemi`)
+     	.setFooter("Spotify Premium")
+     	.setTimestamp()
+    	const embed2 = new Discord.RichEmbed()
+      	.setColor("GREEN")
+      	.setDescription("Bedava Spotify hesabını özelden yolladım. Eposta ve Şifresi içinde :postbox:")
+      	.setAuthor(msg.author.username, msg.author.avatarURL)
+      	.setFooter("Spotify Premium")
+      	.setTimestamp()
+   	 msg.channel.send(embed2).then(msg.author.send(embed));
+  	 }
+		
 	bot.login(process.env.BOT_TOKEN);
