@@ -187,7 +187,7 @@
 	//Hesaplar
 	bot.on('message', msg => {
   	if (msg.content === prefix + 'hesapver') {
-    	const embed = new Discord.RichEmbed()
+    	const hesap1 = new Discord.RichEmbed()
       	.setColor("RED")
       	.setAuthor(msg.author.username, msg.author.avatarURL)
       	.addField("Hesap Bilgileri", `Eposta: deneme123@gmail.com`)
@@ -195,13 +195,13 @@
      	.setDescription(`${bot.user.username} Bedava Hesap Sistemi`)
      	.setFooter("Spotify Premium")
      	.setTimestamp()
-    	const embed2 = new Discord.RichEmbed()
+    	const hesapgonder = new Discord.RichEmbed()
       	.setColor("GREEN")
       	.setDescription("Bedava Spotify hesabını özelden yolladım. Eposta ve Şifresi içinde :postbox:")
       	.setAuthor(msg.author.username, msg.author.avatarURL)
       	.setFooter("Spotify Premium")
       	.setTimestamp()
-   	 msg.channel.send(embed2).then(msg.author.send(embed));
+   	 msg.channel.send(hesapgonder).then(msg.author.send(hesap1));
   	 }
-		
+	 });
 	bot.login(process.env.BOT_TOKEN);
