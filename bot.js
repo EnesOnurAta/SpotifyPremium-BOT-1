@@ -186,7 +186,7 @@
 	
 	//Hesaplar
 	bot.on('message', msg => {
-  	if (msg.content === prefix + 'hesapver') {
+  	if (msg.content === ${prefix} + 'hesapver') {
     	const hesap1 = new Discord.RichEmbed()
       	.setColor("RED")
       	.setAuthor(msg.author.username, msg.author.avatarURL)
@@ -204,4 +204,5 @@
    	 msg.channel.send(hesapgonder).then(msg.author.send(hesap1));
   	 }
 	 });
+
 	bot.login(process.env.BOT_TOKEN);
