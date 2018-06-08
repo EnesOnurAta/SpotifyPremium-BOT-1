@@ -3,7 +3,7 @@ module.exports.run = async (bot, message, args) => {
 let bug = args.join(" ").slice(0);
 let user = message.author.username;
 let guild = message.guild.name;
-let channel = bot.channels.get("445069238676357120")
+let channel = bot.channels.get("454676355808755724")
 let embed = new Discord.RichEmbed()
 .setTitle("Hata Buldum")
 .setThumbnail("https://images-ext-1.discordapp.net/external/nQoe_5zRdR6A5gsh2fevRbNvhoc5A2YIWP7zVdN5_NE/%3Fv%3D1/https/cdn.discordapp.com/emojis/435908220100280320.png?width=80&height=80")
