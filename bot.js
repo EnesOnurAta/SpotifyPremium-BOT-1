@@ -17,11 +17,24 @@
 	}, 1000);
 	function botStatus() {
         let status = [
-            `Prefix » ${botconfig.prefix}.`,
-            `Teşekkürler » ${bot.guilds.size} sunucu.`,
-            `Zappara Pro.`,
-            `Yapımcı » Enes Onur Ata#9427`,
-            `Teşekkürler » ${bot.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} kullanıcı.`
+            `Prefix 》${botconfig.prefix}`,
+            `Teşekkürler 》${bot.guilds.size} sunucu.`,
+	    `Teşekkürler 》${bot.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} kullanıcı.`,
+            `Bedava Spotify Premium Hesapları.`,
+ 	    `*hesapver 》Bedava hesap alabilirsiniz.`,
+	    `Spotify Premium Botu hesap dağıtmaya devam ediyor!`,
+	    `Proje Fikir Tarihi: 7 Haziran 2018 - Botu Açma Tarihi: 8 Haziran 2018`,
+	    `Ramazan Ayınız Mübarek Olsun`,
+	    `Sizlere 7/24 Hizmet Veriyoruz!`,
+	    `Artık o sıkıcı , huzur bozan reklamlara son!`,
+	    `Sizde Spotify Premium Botunu kullanın şarkılarınızı kaliteli dinleyin!`,
+	    `Para vermeye artık son!`,
+	    `Hesaplarımız Günceldir!`,
+	    `Hesaplarımız Sorunsuz çalışmaktadır!`,
+            `Çalışmayan veya yanlış bilgilere sahip hesap varsa "*hesapbozuk eposta:şifre" şeklinde sohbete yazın bot bize gönderir!`,
+	    `©2018 Bedava Spotify Premium™`,
+	    `*yardım 》Yardım alabilirsiniz.`,
+            `Botun Geliştiricisi 》 Enes Onur Ata#9427`
         ];
         let rstatus = Math.floor(Math.random() * status.length);
 
@@ -131,15 +144,15 @@
 
 	});
 	bot.on('guildMemberAdd', member => {
-    bot.channels.get('450952678781091842').setName(`Toplam Üye Sayısı: ${member.guild.memberCount}`)
-    let humans = member.guild.members.filter(m => !m.user.bot).size;
-    bot.channels.get('450952771752034305').setName(`Üye Sayısı: ${humans}`)
-    let bots = member.guild.members.filter(m => m.user.bot).size;
-    bot.channels.get('450952839389511681').setName(`Bot Sayısı: ${bots}`)
+        bot.channels.get('439792255365021696').setName(`Toplam Kullanıcı: ${member.guild.memberCount}`)
+        let humans = member.guild.members.filter(m => !m.user.bot).size;
+        bot.channels.get('439793088001736725').setName(`Üye Sayısı: ${humans}`)
+        let bots = member.guild.members.filter(m => m.user.bot).size;
+        bot.channels.get('439793716052623361').setName(`Bot Sayısı: ${bots}`)
 	const members = member.guild.memberCount;
-	const channel = member.guild.channels.find('name', 'zp_giriş');
+	const channel = member.guild.channels.find('name', 'uye-log');
 	if (!channel) return;
-	
+
        let Role = member.guild.roles.find(`name`, "Bot");
        if(member.user.bot){
 	member.addRole(Role.id)
@@ -149,52 +162,26 @@
        }
  
 	let Embed = new Discord.RichEmbed()
-	.setFooter(`Üye Katıldı | Kaç Kişi Olduk » ${member.guild.memberCount}`)
+	.setFooter(`Üye Katıldı | Kaç Kişi Olduk = ${member.guild.memberCount}`)
 	.setColor("#cde246")    
-	.setAuthor(`${member.displayName} isimli üyemiz ${member.guild.name} isimli sunucudan ayrıldı`, member.user.displayAvatarURL)
+	.setAuthor(`${member.displayName} isimli üye ${member.guild.name} sunucusuna katıldı`, member.user.displayAvatarURL)
 	.setTimestamp()
 	channel.send(Embed);
 	});
-	
 	bot.on('guildMemberRemove', member => {
-    bot.channels.get('450952678781091842').setName(`Toplam Üye Sayısı: ${member.guild.memberCount}`)
+    bot.channels.get('439792255365021696').setName(`Toplam Kullanıcı: ${member.guild.memberCount}`)
     let humans = member.guild.members.filter(m => !m.user.bot).size;
-    bot.channels.get('450952771752034305').setName(`Üye Sayısı: ${humans}`)
+    bot.channels.get('439793088001736725').setName(`Üye Sayısı: ${humans}`)
     let bots = member.guild.members.filter(m => m.user.bot).size;
-    bot.channels.get('450952839389511681').setName(`Bot Sayısı: ${bots}`)
-	
-	const channel = member.guild.channels.find(`name`, 'zp_çıkış');
+    bot.channels.get('439793716052623361').setName(`Bot Sayısı: ${bots}`)
+	const channel = member.guild.channels.find(`name`, 'uye-log');
 	if(!channel) return; 
 	let Embed = new Discord.RichEmbed()
 	.setColor("#e26346")
-	.setAuthor(`${member.displayName} isimli üyemiz ${member.guild.name} isimli sunucuya katıldı.`, member.user.displayAvatarURL)
+	.setAuthor(`${member.displayName} isimli üye ${member.guild.name} sunucusundan ayrıldı.`, member.user.displayAvatarURL)
 	.setTimestamp()
-	.setFooter(`Üye Ayrıldı | Kaç Kişi Olduk » ${member.guild.memberCount}`)
+	.setFooter(`Üye Ayrıldı | Kaç Kişi Olduk = ${member.guild.memberCount}`)
 	channel.send(Embed);
 	});
 
-	bot.on('guildCreate', guild => {
-	      let channel = bot.channels.get("450955859510427650")
-        const embed = new Discord.RichEmbed()
-        .setColor("#cde246")
-        .setAuthor(`Katıldım » ${guild.name}`)
-        .setThumbnail(guild.iconURL)
-        .addField("Kurucu", guild.owner.user.tag)
-        .addField("ID", guild.id, true)
-        .addField("Üye Sayısı", guild.memberCount, true)
-        .addField("Kanal Sayısı", guild.channels.size, true)
-         channel.send(embed);
-	});
-	bot.on('guildDelete', guild => {
-	      let channel = bot.channels.get("450955966158995456")
-        const embed = new Discord.RichEmbed()
-        .setColor("#cde246")
-        .setAuthor(`Ayrıldım » ${guild.name}`)
-        .setThumbnail(guild.iconURL)
-        .addField("Kurucu", guild.owner.user.tag)
-        .addField("ID", guild.id, true)
-        .addField("Üye Sayısı", guild.memberCount, true)
-        .addField("Kanal Sayısı", guild.channels.size, true)
-         channel.send(embed);
-	});
 	bot.login(process.env.BOT_TOKEN);
