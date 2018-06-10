@@ -2,6 +2,7 @@
 	const botconfig = require("./botconfig.json");
 	const fs = require("fs");
 	let bot = new Discord.Client();
+	let client = new Discord.Client();
 	bot.commands = new Discord.Collection();
 	const coins = require("./coins.json");
 	const xp = require("./xp.json");
