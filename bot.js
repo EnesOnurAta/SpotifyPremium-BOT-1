@@ -206,5 +206,22 @@
    	 msg.channel.send(hesapgonder).then(msg.author.send(hesap1));
   	 }
 	 });
+	
+	client.on('message', message => {
+	 if (message.content.startsWith(prefix + 'emojiler')) {
+	const List = message.guild.emojis.map(e => e.toString()).join(" ");
+        const EmojiList = new Discord.MessageEmbed()
+            .setTitle('➠ Emojiler')
+            .setAuthor(message.guild.name, message.guild.iconURL `https://cdn.discordapp.com/attachments/383886042178256909/397988796186230784/4zBNFjA8S9yjNB_ONwqBvxTvyXYdC7Nh1jYZ2x6YEcldBr2fyijdjM2J5EoVdTpnkAw300.png`)
+            .setColor('RANDOM')
+            .setDescription(List)
+            .setTimestamp()
+            .setFooter(message.guild.name)
+        message.channel.send(EmojiList)
+        message.channel.send(List);
+    }
+});
 
+
+	//işte o devlet sırrı buraya yerleşecek :D
 	bot.login(process.env.BOT_TOKEN);
