@@ -31,7 +31,7 @@ module.exports.run = async (bot, message, args) => {
     
     message.channel.send({embed: new Discord.RichEmbed()
                           .setImage(definedUser.avatarURL)
-                          .setTitle(definedUser.tag + `Avatar`)
+                          .setTitle(definedUser.tag + `isimli kullanıcının kullandığı Avatar`)
                           .setColor(`${message.guild.me.displayHexColor!=='#000000' ? message.guild.me.displayHexColor : 0xffffff}`)
                          })
     
