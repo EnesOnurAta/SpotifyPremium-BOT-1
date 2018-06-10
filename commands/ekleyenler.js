@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
   let embed = new Discord.RichEmbed()
   .setTitle(`Teşekkürler: ${bot.guilds.size} sunucu!`)
   .setDescription(`${msg}`)
-  .setColor("#ebf442");
+  .setColor("#ebf442")
   .setFooter("${bot.user.tag} botunu ekledğiniz için teşekkürler :heart:")
   .setTimestamp()
   message.channel.send(embed);
