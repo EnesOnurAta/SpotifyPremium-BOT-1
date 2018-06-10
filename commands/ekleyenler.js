@@ -7,7 +7,8 @@ module.exports.run = async (bot, message, args) => {
   .setTitle(`Teşekkürler: ${bot.guilds.size} sunucu!`)
   .setDescription(`${msg}`)
   .setColor("#ebf442");
-  .setFooter(`${bot.user.tag} botunu ekledğiniz için teşekkürler :heart:`)
+  .setFooter("${bot.user.tag} botunu ekledğiniz için teşekkürler :heart:")
+  .setTimestamp()
   message.channel.send(embed);
 }
 
