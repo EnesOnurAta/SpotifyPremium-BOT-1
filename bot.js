@@ -38,9 +38,9 @@
             `Botun Geliştiricisi 》 Enes Onur Ata#9427`
         ];
         let rstatus = Math.floor(Math.random() * status.length);
-  	
-  	bot.user.setActivity(status[rstatus], {Type: 'STREAMING'});// BOT STATUS
-        setInterval(botStatus, 20000)
+
+        bot.user.setActivity(status[rstatus], {Type: 'STREAMING'});        // BOT STATUS
+      }; setInterval(botStatus, 20000)
         setInterval(() => {
         dbl.postStats(bot.guilds.size)
         }, 1800000);
