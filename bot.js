@@ -39,7 +39,6 @@
         ];
         let rstatus = Math.floor(Math.random() * status.length);
   	
-	bot.user.setStatus("STREAMING"); 
   	bot.user.setActivity(status[rstatus], {Type: 'STREAMING'});// BOT STATUS
         setInterval(botStatus, 20000)
         setInterval(() => {
