@@ -38,8 +38,8 @@
             `Botun Geliştiricisi 》 Enes Onur Ata#9427`
         ];
         let rstatus = Math.floor(Math.random() * status.length);
-	bot.on('ready', () => {
-  	bot.user.setStatus("STREAMING"); 
+  	
+	bot.user.setStatus("STREAMING"); 
   	bot.user.setActivity(status[rstatus], {Type: 'STREAMING'});
 	})        // BOT STATUS
       }; setInterval(botStatus, 20000)
