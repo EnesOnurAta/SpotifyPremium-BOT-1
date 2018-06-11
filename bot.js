@@ -22,20 +22,13 @@
             `Prefix 》${botconfig.prefix}`,
             `Teşekkürler 》${bot.guilds.size} sunucu.`,
 	    `Teşekkürler 》${bot.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} kullanıcı.`,
-            `Bedava Spotify Premium Hesapları.`,
- 	    `*hesapver 》Bedava hesap alabilirsiniz.`,
-	    `Spotify Premium Botu hesap dağıtmaya devam ediyor!`,
-	    `Proje Fikir Tarihi: 7 Haziran 2018 - Botu Açma Tarihi: 8 Haziran 2018`,
+            `Yardıma mı ihtiyacınız var? 》 ${botconfig.prefix}yardım`,
+ 	    `Moderasyon komutları 》 ${botconfig.prefix}mod`,
+	    `Eğlence Komutları 》 ${botconfig.prefix}eğlence`,
+	    `İstatistikler 》${botconfig.prefix}istatistikler`,
 	    `Ramazan Ayınız Mübarek Olsun`,
 	    `Sizlere 7/24 Hizmet Veriyoruz!`,
-	    `Artık o sıkıcı , huzur bozan reklamlara son!`,
-	    `Sizde Spotify Premium Botunu kullanın şarkılarınızı kaliteli dinleyin!`,
-	    `Para vermeye artık son!`,
-	    `Hesaplarımız Günceldir!`,
-	    `Hesaplarımız Sorunsuz çalışmaktadır!`,
-            `Çalışmayan veya yanlış bilgilere sahip hesap varsa "*hesapbozuk eposta:şifre" şeklinde sohbete yazın bot bize gönderir!`,
-	    `©2018 Bedava Spotify Premium™`,
-	    `*yardım 》Yardım alabilirsiniz.`,
+	    `©2018 Zappara Pro™ by Enes Onur Ata#9427`,
             `Botun Geliştiricisi 》 Enes Onur Ata#9427`
         ];
         let rstatus = Math.floor(Math.random() * status.length);
@@ -186,43 +179,6 @@
 	channel.send(Embed);
 	});
 	
-	//Hesaplar
-	bot.on('message', msg => {
-  	if (msg.content === prefix + 'hesapver') {
-    	const hesap1 = new Discord.RichEmbed()
-      	.setColor("RED")
-      	.setAuthor(msg.author.username, msg.author.avatarURL)
-	.addField("Hesap Bilgileri")
-      	.addField("Eposta", `deneme123@gmail.com`)
-	.addField("Şifre",`deneme123`)
-     	.setDescription(`${bot.user.username} Bedava Hesap Sistemi`)
-     	.setFooter("Spotify Premium")
-     	.setTimestamp()
-    	const hesapgonder = new Discord.RichEmbed()
-      	.setColor("GREEN")
-      	.setDescription("Bedava Spotify Premium hesabını özelden yolladım. Eposta ve Şifresi içinde :postbox:")
-      	.setAuthor(msg.author.username, msg.author.avatarURL)
-      	.setFooter("Spotify Premium")
-      	.setTimestamp()
-   	 msg.channel.send(hesapgonder).then(msg.author.send(hesap1));
-  	 }
-	 });
-	
-	// Emojileri gösterme
-	client.on('message', message => {
-	 if (message.content.startsWith(prefix + 'emojiler')) {
-	const List = message.guild.emojis.map(e => e.toString()).join(" ");
-        const EmojiList = new Discord.MessageEmbed()
-            .setTitle('➠ Emojiler')
-            .setAuthor(message.guild.name, message.guild.iconURL `https://cdn.discordapp.com/attachments/383886042178256909/397988796186230784/4zBNFjA8S9yjNB_ONwqBvxTvyXYdC7Nh1jYZ2x6YEcldBr2fyijdjM2J5EoVdTpnkAw300.png`)
-            .setColor('RANDOM')
-            .setDescription(List)
-            .setTimestamp()
-            .setFooter(message.guild.name)
-        message.channel.send(EmojiList)
-        message.channel.send(List);
-    }
-});
 
 	//işte o devlet sırrı buraya yerleşecek :D
 	bot.login(process.env.BOT_TOKEN);
